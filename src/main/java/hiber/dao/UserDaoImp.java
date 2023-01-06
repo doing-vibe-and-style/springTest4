@@ -21,7 +21,6 @@ public class UserDaoImp implements UserDao {
       sessionFactory.getCurrentSession().save(user);
    }
 
-   @Transactional
    @Override
    public List<User> getUserCar(String model, int series) {
       String HQL = "from User as u where u.car.model = :model and u.car.series = :series";
@@ -32,7 +31,6 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   @Transactional
    @SuppressWarnings("unchecked")
    public List<User> listUsers() {
       TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
